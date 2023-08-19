@@ -7,7 +7,7 @@ export const MovieListContainer = styled.div`
   flex-wrap: wrap;
   margin-top: 64px;
   height: calc(100vh - 72px);
-  overflow-y: scroll;
+  overflow: scroll;
   a {
     text-decoration: none !important ;
   }
