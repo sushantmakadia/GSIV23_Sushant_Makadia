@@ -6,6 +6,7 @@ import movieInfo from "../reducers/movieInfo";
 
 const persistConfig = {
   key: "root",
+  blacklist: ['search'],
   storage,
 };
 
@@ -16,5 +17,4 @@ const store = configureStore({
 });
 export type RootState = ReturnType<typeof movieInfo>;
 const reduxPersist = persistStore(store);
-
 export { store, reduxPersist };

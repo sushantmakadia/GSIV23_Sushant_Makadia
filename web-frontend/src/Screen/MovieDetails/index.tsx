@@ -31,10 +31,12 @@ const DetailPage = () => {
   const tmdbApiKey = process.env.REACT_APP_TMDB_API_KEY;
 
   useEffect(() => {
+    const url = process.env.REACT_APP_BASE_URL;
+    const apiKey = process.env.REACT_APP_API_KEY;
     const fetchMovieDetails = async () => {
       try {
         const response = await fetch(
-          `https://api.themoviedb.org/3/movie/${selectedMovieId}?api_key=ccfd0f7507aa16306d4f5202a14b5e62&language=en-US&append_to_response=credits`
+          `${url}movie/${selectedMovieId}?api_key=${apiKey}&language=en-US&append_to_response=credits`
         );
         const data = await response.json();
         setMovies(data);
@@ -67,7 +69,7 @@ const DetailPage = () => {
   const Actors = credits?.cast
     .filter((value) => value.known_for_department === "Acting")
     .map((value) => value.name)
-    .filter((value, index, self) => self.indexOf(value) === index) // Remove duplicates
+    .filter((value, index, self) => self.indexOf(value) === index) 
     .slice(0, 2);
   return (
     <ContainerStyled>
