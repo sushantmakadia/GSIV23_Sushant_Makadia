@@ -4,8 +4,26 @@ import { Card } from "../../Component/Card"
 import { RootState } from "../../Redux/store";
 import { MovieListContainer } from "./MovieListStyled"
 
+interface MovieResponseType {
+    adult: boolean,
+    backdrop_path: string,
+    genre_ids: [],
+    id: number,
+    original_language: string,
+    original_title: string,
+    overview: string,
+    popularity: number,
+    poster_path: string,
+    release_date: string,
+    title: string,
+    video: boolean
+    vote_average: number,
+    vote_count: number,
+}
+
+
 export const MovieList = (): JSX.Element => {
-    const [list, setList] = useState<any[]>([]);
+    const [list, setList] = useState<MovieResponseType[]>([]);
     const [pageCount, setPageCount] = useState(1);
     const [reset, setReset] = useState(false);
     const search = useSelector((state: RootState) => state.search);
@@ -38,7 +56,7 @@ export const MovieList = (): JSX.Element => {
 
     const renderMovieList = () => {
         return list.map((item) => {
-            return <Card title={item.title} description={item.overview} rating={item.vote_average} img={`https://image.tmdb.org/t/p/w200/${item.poster_path}`} id={item.id} />
+            return <Card key={item.id} title={item.title} description={item.overview} rating={item.vote_average} img={`https://image.tmdb.org/t/p/w200/${item.poster_path}`} id={item.id.toString()} />
         })
     }
 
