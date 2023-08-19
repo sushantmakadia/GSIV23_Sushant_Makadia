@@ -1,10 +1,20 @@
-import { CardContainer, HeaderSpan, ImageContainer, InfoSpan, SubHeaderSpan } from "./CardStyled"
+import { CardContainer, HeaderSpan, HorizontalDiv, ImageContainer, InfoSpan, SubHeaderSpan } from "./CardStyled"
 
-export const Card = ()=>{
+interface Props {
+    title: string;
+    description: string | null;
+    rating: number;
+    img: string;
+    id: string;
+  }
+
+export const Card = ( {title, description, rating, id, img }:Props)=>{
     return <CardContainer >
-        <ImageContainer  />
-        <HeaderSpan />
-        <InfoSpan />
-        <SubHeaderSpan/>
+        <ImageContainer image={img}  />
+        <HorizontalDiv>
+        <HeaderSpan >{title}</HeaderSpan>
+        <InfoSpan >({rating})</InfoSpan>
+        </HorizontalDiv>
+        <SubHeaderSpan>{description}</SubHeaderSpan>
     </CardContainer>
 }
