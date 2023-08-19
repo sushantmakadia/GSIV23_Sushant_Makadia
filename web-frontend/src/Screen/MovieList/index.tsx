@@ -20,17 +20,18 @@ export const MovieList=():JSX.Element=>{
         }
       
         const apiEndPoint = search==''?`https://api.themoviedb.org/3/movie/upcoming?api_key=ccfd0f7507aa16306d4f5202a14b5e62&sort_by=release_date.desc&page=${pageCount}`:`https://api.themoviedb.org/3/search/movie?api_key=ccfd0f7507aa16306d4f5202a14b5e62&query=${search}`
-        try {
-          const response = await fetch(
+            fetch(
             apiEndPoint
-          );
-          const data = await response.json();
-          const movie= [...list,...data.results]
-          console.log(movie)
-          search!=''?setList(data.results):setList(movie);
-        } catch (error) {
-          console.error('Error fetching upcoming movies:', error);
-        }
+          ).then(async (response)=>{
+            const data = await response.json();
+            const movie= [...list,...data.results]
+            console.log(movie)
+            search!=''?setList(data.results):setList(movie);
+          }).catch((error)=>{
+            console.error('Error fetching upcoming movies:', error);
+          });
+         
+        
       };
     
       useEffect(() => {
@@ -46,7 +47,7 @@ export const MovieList=():JSX.Element=>{
     const handleScroll = (e) => {
       //  console.log(Math.floor(e.target.scrollHeight - e.target.scrollTop),e.target.clientHeight)
         let bottom = Math.floor(e.target.scrollHeight - e.target.scrollTop-1) <= e.target.clientHeight;
-        if(bottom && !reset){
+        if(bottom && search==''){
             setPageCount((prev)=>prev+1);
             bottom = false;
         }

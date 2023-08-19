@@ -32,6 +32,7 @@ export const HeaderSpan = styled(Typography)`
 export const SubHeaderSpan = styled(Typography)`
     margin-left: 4px !important;
     width: 145px;
+    color: #4a4a4a;
     line-height: 14.06px;
     font-size: 12px !important;
     font-weight: 400 !important;

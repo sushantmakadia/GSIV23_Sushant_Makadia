@@ -4,12 +4,13 @@ import HomeIcon from "@mui/icons-material/Home";
 import { InputBase, IconButton, Typography } from "@mui/material";
 import { setSearch } from "../../Redux/reducers/movieInfo";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 
 const Navbar = () => {
 
   const dispatch = useDispatch();
-
+    const navigate = useNavigate();
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const query = event.target.value;
       dispatch(setSearch(query));
@@ -27,8 +28,8 @@ const Navbar = () => {
           />
         </SearchBarStyled>
     
-      <IconButton >
-        <HomeIcon fill="#4A4A4A" />
+      <IconButton onClick={()=>navigate('/')}>
+        <HomeIcon fill="#4A4A4A"/>
       </IconButton>
     </NavbarStyled>
   );
