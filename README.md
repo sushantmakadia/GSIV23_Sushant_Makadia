@@ -1,7 +1,7 @@
-React Assignment README
+# React Assignment README
 This README provides instructions on how to run and test the code for the React assignment. It also highlights the elements of the challenge that have been well-implemented, discusses possible improvements with additional time, and provides optional feedback for enhancing the challenge.
 
-Instructions
+# Instructions
 Follow these steps to run and test the React assignment:
 
 Clone the repository: git clone <repository-url>
@@ -12,7 +12,7 @@ Add the following environment variable to the .env file: REACT_APP_API_KEY=<your
 Run the development server: npm start
 Access the app in your browser: http://localhost:3000
 To run tests: npm test
-Implemented Elements
+## Implemented Elements
 1. Component Architecture
 The codebase demonstrates a well-organized component architecture. Components are logically structured and reusable, promoting a clean and maintainable codebase.
 
@@ -34,7 +34,7 @@ The UI is responsive and adapts to different screen sizes. Media queries or resp
 7. Unit Testing
 I have implemented unit test cases using Jest and the React Testing Library. This practice significantly contributes to improving the overall code quality and enhancing the robustness of the application.
 
-Possible Improvements
+## Possible Improvements
 Given more time, the following enhancements can be made to the solution:
 
 1. Infinite Scrolling
